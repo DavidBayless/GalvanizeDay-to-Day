@@ -1,0 +1,28 @@
+body {
+  font-size: 10px;
+  font-family: "Roboto";
+}
+
+.inputRow {
+  margin: 2rem;
+}
+
+.groceries {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.groceries th  {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.groceryheader {
+  font-size: 3rem;
+  text-align: center;
+  /*margin-right: 8rem;*/
+}
+
+.groceries tr:nth-child(even) {
+  background-color: #dfdfdf;
+}

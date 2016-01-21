@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="GroceryApp">
+<head>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+  <script src='groceries.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel='stylesheet' href='groceries.css'>
+</head>
+<body>
+  <div class='container' ng-controller="GroceryController as grocery">
+    <div class='row inputRow'>
+      <input type='text' placeholder="Food Name" class="col-md-2 col-md-offset-2" ng-model='foodname'>
+      <input type='number' placeholder="Number Needed" class="col-md-2 col-md-offset-1" ng-model='quantity'>
+      <input type='button' value="Add Item" class="col-md-2 col-md-offset-1" ng-click='grocery.foodObject.foodname= foodname; grocery.foodObject.quantity= quantity; grocery.addFood(grocery.foodObject); grocery.foodObject = {}; foodname=""; quantity=0'>
+    </div>
+    <div class= 'row inputRow' ng-init='checkfilter=""; alphafilter=food.foodname'>
+      <input type='text' name='search' ng-model='searchtext' placeholder='Search' class='col-md-2 col-md-offset-2'>
+      <select ng-model='checkfilter' class='col-md-2 col-md-offset-1'>
+        <option value=''>Unfiltered</option>
+        <option value='false'>Unchecked Only</option>
+        <option value='true'>Checked Only</option>
+      </select>
+      <select ng-model='alphafilter' class='col-md-2 col-md-offset-1'>
+        <option value="">Unfiltered</option>
+        <option value="foodname">Alphabetical Order</option>
+        <option value='-foodname'>Reverse Alphabetical Order</option>
+        <option value='-quantity'>Quantity</option>
+        <option value='quantity'>Reverse Quantity</option>
+      </select>
+    </div>
+    <div class='row'>
+      <div class='col-md-8 col-md-offset-2'>
+        <div class='row'>
+          <h2 class='groceryheader'>
+            Grocery List of Awesomeitude
+          </h2>
+          <table class='col-md-12 groceries'>
+            <tbody>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Checked</th>
+              <th>Remove Item</th>
+              <tr ng-repeat='food in grocery.foodArray | filter:searchtext | filter:checkfilter | orderBy:alphafilter track by $index'>
+                <td>{{food.foodname}}</td>
+                <td>{{food.quantity}}</td>
+                <td><input type='checkbox' ng-model='food.checked'></td>
+                <td><input type='button' class='btn btn-default' value='Remove Item' ng-click='grocery.removeFood(food)'></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
