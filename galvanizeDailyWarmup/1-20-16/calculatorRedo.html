@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="calculator">
+<head>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+  <script src='calculator.js'></script>
+  <link rel='stylesheet' href='calculator.css'>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+<body>
+  <div class='container'>
+    <audio class='fire' src='campfire-1.mp3' autoplay loop></audio>
+    <audio class='jazz' src='1924_048.mp3' autoplay loop></audio>
+    <div class='row calculator' ng-controller='calculatorController as vm'>
+      <div class='col-md-6 col-md-offset-3 border'>
+        <div class='row screenrow'>
+          <div class='col-md-10 col-md-offset-1 screen'>
+            <h2 class='screenText'>{{vm.screen}}</h2>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-10 col-md-offset-1 stored'>
+            <p>{{vm.stored}}</p>
+          </div>
+        </div>
+        <div class='row toprow'>
+          <div class='col-md-2 col-md-offset-1 button left' ng-click='vm.screen= vm.screen + "7"'><p>7</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "8"'><p>8</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "9"'><p>9</p></div>
+          <div class='col-md-2 button' ng-click='vm.stored= vm.operate(vm.screen, vm.stored); vm.screen=""; vm.operator= "+"; '><p>+</p></div>
+          <div class='col-md-2 button right' ng-click='vm.stored= vm.operate(vm.screen, vm.stored); vm.screen= "";  vm.operator= "-";'><p>-</p></div>
+
+        </div>
+        <div class='row topmiddlerow'>
+          <div class='col-md-2 col-md-offset-1 button left' ng-click='vm.screen= vm.screen + "4"'><p>4</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "5"'><p>5</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "6"'><p>6</p></div>
+          <div class='col-md-2 button' ng-click='vm.stored= vm.operate(vm.screen, vm.stored); vm.screen= ""; vm.operator= "*";'><p>*</p></div>
+          <div class='col-md-2 button right' ng-click='vm.stored= vm.operate(vm.screen, vm.stored); vm.screen= ""; vm.operator= "/";'><p>/</p></div>
+
+        </div>
+        <div class='row bottommiddlerow'>
+          <div class='col-md-2 col-md-offset-1 button left' ng-click='vm.screen= vm.screen + "1"'><p>1</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "2"'><p>2</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "3"'><p>3</p></div>
+          <div class='col-md-2 button' ng-click='vm.stored= vm.operate(vm.screen, vm.stored); vm.screen= ""; vm.operator= "^";'><p>^</p></div>
+          <div class='col-md-2 button right' ng-click='vm.screen= vm.sqrt(vm.screen)'><p>Sqrt</p></div>
+        </div>
+        <div class='row bottomrow'>
+          <div class='col-md-2 col-md-offset-1 button left' ng-click='vm.screen= vm.negative(vm.screen)'><p>neg</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.screen + "0"'><p>0</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= vm.decimal(vm.screen)'><p>.</p></div>
+          <div class='col-md-2 button' ng-click='vm.screen= ""; vm.stored= ""'><p>Clr</p></div>
+          <div class='col-md-2 button right' ng-click='vm.screen= vm.operate(vm.screen, vm.stored); vm.stored = "0"; vm.operator="+"'><p>=</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

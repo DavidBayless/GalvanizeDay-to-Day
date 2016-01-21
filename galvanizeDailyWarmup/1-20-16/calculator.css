@@ -1,0 +1,72 @@
+body {
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 200;
+  background-color: #212121;
+  height: 100vh;
+  width: 100vw;
+  background: url('http://media2.giphy.com/media/UUjeTtRXZggp2/giphy.gif')center center no-repeat;
+  background-size: 100vw 100vw;
+}
+
+.border {
+  border: 2px solid black;
+  padding: 2rem;
+  width: 110%;
+  position: relative;
+  top: 50%;
+  transform: translateY(3%);
+  background-color: rgba(230, 230, 230, .7);
+  border-radius: 5px;
+}
+
+.screen {
+  border: 2px solid black;
+  text-align: right;
+  margin: 2rem;
+  height: 8rem;
+  background-color: rgba(210, 230, 210, .7)
+}
+
+.stored {
+  height: 2rem;
+}
+
+.stored p {
+  position: relative;
+  top: 50%;
+  transform: translateY(-100%);
+}
+.button {
+  text-align: center;
+  border: 1px solid black;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  box-sizing: border-box;
+  height: 12rem;
+  /*background-color: rgba(150, 250, 50, .7);*/
+}
+
+.button p {
+  positon: relative;
+  top: 50%;
+  transform: translateY(50%);
+  font-size: 2rem;
+}
+
+.toprow .button {
+  border-top: 2px solid black;
+}
+
+.bottomrow .button {
+  border-bottom: 2px solid black;
+  margin-bottom: 2rem;
+}
+
+.right {
+  border-right: 2px solid black;
+}
+
+.left {
+  border-left: 2px solid black;
+}
