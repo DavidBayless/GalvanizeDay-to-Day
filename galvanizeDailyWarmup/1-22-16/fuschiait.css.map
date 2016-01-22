@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACH,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,QAAQ;;AAGvB,IAAK;EACH,gBAAgB,EAAE,OAAO;EACzB,aAAa,EAAE,iBAAiB",
+"sources": ["fuschiait.scss"],
+"names": [],
+"file": "fuschiait.css"
+}
