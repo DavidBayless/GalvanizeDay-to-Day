@@ -3,6 +3,14 @@ body {
   font-family: cursive;
   background-color: rgba(255, 0, 255, .09);
   box-sizing: border-box;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 .nav {
@@ -11,21 +19,47 @@ body {
   border-radius: 0;
   margin-bottom: 2rem;
   height: 5rem;
+  z-index: 10;
+
+  .navhover:hover {
+    color: #884488;
+    font-size: 1.5rem;
+  }
 
   .navobject {
     position: relative;
     top: 50%;
     transform: translateY(15%);
     color: #bb00bb;
+    text-align: center;
 
     h6 {
-      width: 120%;
+      width: 150%;
     }
 
     input {
       transform: translateY(50%);
       background-color: #ffeeff;
     }
+  }
+}
+
+.dropdown {
+  width: 15%;
+  margin-top: -1rem;
+  padding-bottom: 1.6rem;
+  height: inherit;
+  background-color: rgba(255, 0, 255, .2);
+  z-index: 10;
+
+  h6 {
+    margin-left: -3rem;
+
+  }
+
+  :hover {
+    margin-top: -1rem;
+    height: 15rem;
   }
 }
 

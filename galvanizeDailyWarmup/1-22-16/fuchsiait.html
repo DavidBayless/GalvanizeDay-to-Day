@@ -12,17 +12,22 @@
   <div class='container-fluid' ng-controller='FuchsiaItController as FC'>
     <div class='row'  ng-class='{nav: !FC.extendedNav, navExtend: FC.extendedNav}'>
       <div class='navbar col-md-12'>
-        <div class='col-md-1 col-md-offset-1 navobject'>
+        <div class='col-md-2 col-md-offset-1 navobject'>
           <h4>Fuchsiait</h4>
         </div>
-        <div class='col-md-1 col-md-offset-1 navobject'>
-          <h6 ng-click='FC.extendedNav= !FC.extendedNav'><span class='glyphicon glyphicon-plus'></span> Submit Post</h6>
+        <div class='col-md-2 navobject'>
+          <h6 ng-click='FC.extendedNav= !FC.extendedNav' class='navhover'><span class='glyphicon glyphicon-plus'></span> Submit Post</h6>
         </div>
         <div class='col-md-2 navobject'>
           <input type='text' placeholder='Search' ng-model='searchposts'>
         </div>
-        <div class='col-md-2 navobject'>
-          <h6>Sort By votes <span class='glyphicon glyphicon-triangle-bottom'></span></h6>
+        <div class='col-md-1 navobject dropdown'>
+          <div class='navhover' ng-mouseover='FC.extendedFilter = true' ng-mouseleave='FC.extendedFilter = false'>
+            <h6>Sort By Votes <span class='glyphicon glyphicon-triangle-bottom'></span></h6>
+          </div>
+          <div>
+            <h6 class='navhover' ng-mouseover='FC.extendedFilter = true' ng-mouseleave='FC.extendedFilter = false' ng-show='FC.extendedFilter'>Sort By Date</h6>
+          </div>
         </div>
       </div>
       <div ng-show='FC.extendedNav' class='formcontainer'>

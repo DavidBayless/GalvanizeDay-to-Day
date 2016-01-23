@@ -2,45 +2,47 @@ var app = angular.module('FuchsiaIt', []);
 app.controller('FuchsiaItController', function($scope) {
   var vm = this;
 
+  vm.extendedFilter = false;
   vm.extendedNav = false;
   vm.posts = [{title: 'Mongooses? Mongeese? Who Knows!?',
                author: 'Bob Bobson',
                content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, officia deserunt mollit anim id est laborum.",
                date: new Date(),
-                hour: hours(),
-                minutes: minutes(),
-                meridian: meridian(),
-                comments: [{author: 'Fred Fredson',
-                           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                         },
-                         {author: 'Fred Fredson',
+               hour: hours(),
+               minutes: minutes(),
+               meridian: meridian(),
+               comments: [{author: 'Fred Fredson',
                           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                  },
-                         {author: 'Fred Fredson',
-                         comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                 }],
-                likes: 0,
-                image: 'http://loremflickr.com/320/240',
-                visibleComments: false,
-                visibleForm: false,
-                addComment: addComment
+                         },
+                          {author: 'Fred Fredson',
+                          comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                         },
+                          {author: 'Fred Fredson',
+                          comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                         }],
+               likes: 0,
+               image: 'http://loremflickr.com/320/240',
+               visibleComments: false,
+               visibleForm: false,
+               addComment: addComment
               },
               {title: 'I like my name, okay!?!?!?!?',
-                           author: 'Fred Fredson',
-                           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, officia deserunt mollit anim id est laborum.",
-                           date: new Date(),
-                            hour: hours(),
-                            minutes: minutes(),
-                            meridian: meridian(),
-                            comments: [{author: 'Fred Fredson',
-                                       comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                     }],
-                            likes: 2,
-                            image: 'http://loremflickr.com/321/240',
-                            visibleComments: false,
-                            visibleForm: false,
-                            addComment: addComment
-                          }];
+               author: 'Fred Fredson',
+               content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, officia deserunt mollit anim id est laborum.",
+               date: new Date(),
+               hour: hours(),
+               minutes: minutes(),
+               meridian: meridian(),
+               comments: [{author: 'Fred Fredson',
+                           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                         }],
+               likes: 2,
+               image: 'http://loremflickr.com/321/240',
+               visibleComments: false,
+               visibleForm: false,
+               addComment: addComment
+              }];
+
   vm.addPost = function(postObj) {
     postObj.date = new Date();
     postObj.minutes = minutes();
