@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app='FuchsiaIt'>
+<head>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+  <script src='fuchsiait.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel='stylesheet' href='fuchsiat.css'>
+  <title>Fuchsia It!</title>
+</head>
+<body>
+  <div class='container-fluid' ng-controller='FuchsiaItController as FC'>
+    <div class='row'  ng-class='{nav: !FC.extendedNav, navExtend: FC.extendedNav}'>
+      <div class='navbar col-md-12'>
+        <div class='col-md-1 col-md-offset-1 navobject'>
+          <h4>Fuchsiait</h4>
+        </div>
+        <div class='col-md-1 col-md-offset-1 navobject'>
+          <h6 ng-click='FC.extendedNav= !FC.extendedNav'><span class='glyphicon glyphicon-plus'></span> Submit Post</h6>
+        </div>
+        <div class='col-md-2 navobject'>
+          <input type='text' placeholder='Search' ng-model='searchposts'>
+        </div>
+        <div class='col-md-2 navobject'>
+          <h6>Sort By votes <span class='glyphicon glyphicon-triangle-bottom'></span></h6>
+        </div>
+      </div>
+      <div ng-show='FC.extendedNav' class='formcontainer'>
+        <form class='addform'>
+          <input type='text' name='title' placeholder='Title' ng-model='newpost.title'>
+          <textarea type='text' name='content' placeholder='Content' ng-model='newpost.content'></textarea>
+          <input type='text' name='image' placeholder='Image URL' ng-model='newpost.image'>
+          <input type='text' name='author' placeholder='Author' ng-model='newpost.author'>
+          <button class='btn btn-default' ng-click='FC.addPost(newpost); newpost= {}; FC.extendedNav= !FC.extendedNav'>Post</button>
+        </form>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-10 col-md-offset-1' ng-class='{postcontainer: !post.visibleComments && !post.visibleForm, postcontainerExtendedComments: post.visibleComments, postcontainerExtendedForm: post.visibleForm}' ng-repeat='post in FC.posts | filter:searchposts'>
+        <div class='imgwrapper'>
+          <img src={{post.image}}>
+        </div>
+        <div class='postTitle'>
+          <h2>{{post.title}} | <span class='glyphicon glyphicon-arrow-up' ng-click='post.likes= post.likes + 1'></span> <span class='glyphicon glyphicon-arrow-down' ng-click='post.likes= post.likes - 1'></span> <span ng-class='{positive: post.likes > 0, negative: post.likes < 0}'>{{post.likes}}</span></h2>
+        </div>
+        <div class='postAuthor'>
+          <p>By {{post.author}}</p>
+        </div>
+        <div class='postContent'>
+          <p>{{post.content}}</p>
+        </div>
+        <div class='postCommentary'>
+          <p><span class='glyphicon glyphicon-calendar'></span> {{post.date | date}} {{post.hour}}:{{post.minutes}} {{post.meridian}} |
+          <span ng-click='post.visibleComments = !post.visibleComments; post.visibleForm = false;'><span class='glyphicon glyphicon-comment'></span> {{post.comments.length}} Comments</span> |
+          <span ng-click='post.visibleComments = false; post.visibleForm = !post.visibleForm'><span class='glyphicon glyphicon-pencil'></span> Add Comment</span></p>
+        </div>
+        <div class='comments' ng-show='post.visibleComments' ng-repeat='comment in post.comments'>
+          <p>{{comment.comment}} By {{comment.author}}</p>
+        </div>
+        <div class='addComments' ng-show='post.visibleForm'>
+          <form class='addform'>
+            <input type='text' placeholder='Author' ng-model='newComment.author'>
+            <textarea placeholder='Comment' ng-model='newComment.comment'></textarea>
+            <button class='btn btn-default' ng-click='post.addComment(post, newComment); newComment={}; post.visibleComments= true; post.visibleForm=false'>Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

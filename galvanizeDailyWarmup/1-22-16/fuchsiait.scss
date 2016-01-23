@@ -1,0 +1,177 @@
+body {
+  font-size: 10px;
+  font-family: cursive;
+  background-color: rgba(255, 0, 255, .09);
+  box-sizing: border-box;
+}
+
+.nav {
+  background-color: rgba(255, 0, 255, .2);
+  border-bottom: 1px solid #ff88ff;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  height: 5rem;
+
+  .navobject {
+    position: relative;
+    top: 50%;
+    transform: translateY(15%);
+    color: #bb00bb;
+
+    h6 {
+      width: 120%;
+    }
+
+    input {
+      transform: translateY(50%);
+      background-color: #ffeeff;
+    }
+  }
+}
+
+.navExtend {
+  @extend .nav;
+  height: 50rem;
+
+  .formcontainer {
+    margin: auto;
+    width: 100%;
+    margin-left: 35%;
+    margin-top: 10rem;
+
+    .addform {
+
+      input, textarea, button {
+        display: block;
+        width: 20%;
+        line-height: normal;
+        height: 4rem;
+        margin: 2rem;
+        background-color: #ffeeff;
+      }
+
+      textarea {
+        height: 12rem;
+      }
+    }
+  }
+}
+
+.postcontainer {
+  background-color: rgba(255, 0, 255, .2);
+  border-radius: 5px;
+  height: 25rem;
+  padding: 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  border: 1px solid #ff88ff;
+
+  .imgwrapper {
+    height: 21rem;
+    width: 25%;
+    margin: 2rem;
+    display: inline-block;
+
+    img {
+      height: inherit;
+      width: 100%;
+      display: inline-block;
+
+    }
+  }
+
+  .postTitle {
+    display: inline-block;
+    margin-left: 1%;
+    height: 2rem;
+    position: relative;
+    top: -8.5rem;
+
+    h2  {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: rem;
+    }
+  }
+
+  .postAuthor {
+    display: inline-block;
+    font-size: 1.5rem;
+    width: 20%;
+    text-align: center;
+    float: right;
+    height: 2rem;
+    position: relative;
+    top: 1rem;
+
+  }
+
+  .postContent {
+    display: inline-block;
+    width: 65%;
+    margin-left: 30%;
+    font-size: 1.5rem;
+    height: 8rem;
+    position: relative;
+    top: -15rem;
+
+  }
+
+  .postCommentary {
+    display: inline-block;
+    font-size: 1.5rem;
+    width: 65%;
+    margin-left: 30%;
+    height: 3rem;
+    position: relative;
+    top: -12.5rem;
+
+  }
+
+}
+
+.postcontainerExtendedComments {
+  @extend .postcontainer;
+  height: 75rem;
+
+  .comments {
+    display: inline-block;
+    width: 65%;
+    margin-left: 30%;
+    position: relative;
+    top: -10rem;
+
+  }
+}
+
+.postcontainerExtendedForm {
+  @extend .postcontainer;
+  height: 60rem;
+
+  .addform {
+    margin-left: 27%;
+    width: 200%;
+    margin-top: -10rem;
+
+    input, textarea, button {
+      display: block;
+      width: 20%;
+      line-height: normal;
+      height: 4rem;
+      margin: 2rem;
+      background-color: #ffeeff;
+    }
+
+    textarea {
+      height: 12rem;
+    }
+  }
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
