@@ -14,7 +14,6 @@ app.filter('toCamel', function() {
       if (output.indexOf('_') !== -1 && output.charAt(output.indexOf('_') + 1) !== '') {
         changes++;
         output = output.split('');
-        console.log(output[output.indexOf('_') + 1]);
         output[output.indexOf('_') + 1] = output[output.indexOf('_') + 1].toUpperCase();
         output.splice(output.indexOf('_'), 1);
         output = output.join('');
@@ -23,7 +22,25 @@ app.filter('toCamel', function() {
         looping = false;
       }
     }
-    console.log(output);
     return output;
+  };
+});
+
+app.filter('redaction', function() {
+  return function(input, param) {
+    var output = input || '';
+    param = param || '';
+    output = output.split(' ');
+    param = param.split(' ');
+    output.forEach(function(elem, index) {
+      for (var i = 0; i < param.length; i++) {
+        if (param[i] == elem) {
+          output[index] = 'REDACTED';
+        }
+      }
+    });
+
+
+    return output.join(' ');
   };
 });

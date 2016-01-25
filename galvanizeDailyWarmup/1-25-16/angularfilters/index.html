@@ -16,6 +16,14 @@
         <input type='text' ng-model='stuff'>
         <h3>{{stuff | toCamel}}</h3>
       </div>
+      <div class='col-md-8 col-md-offset-2'>
+        <input type='text' ng-model='morestuff'>
+        <input type='text' ng-model='str'>
+        <h3>{{morestuff | redaction: str}}</h3>
+      </div>
+      <div class='col-md-8 col-md-offset-2'>
+        <h3>Maybe Something will be here</h3>
+      </div>
     </div>
   </div>
 </body>
