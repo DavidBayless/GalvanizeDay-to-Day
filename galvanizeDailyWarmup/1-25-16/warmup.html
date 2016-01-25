@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app='WarmupApp'>
+<head>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.0/angular.min.js'></script>
+  <script src='warmup.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel='stylesheet' href='warmup.css'>
+</head>
+<body>
+  <div class='container-fluid' ng-controller='WarmupController as WC'>
+
+    <!-- Add a todo row -->
+    <div class='row adder'>
+      <input class='col-md-2 col-md-offset-4' type='text' name='todo' placeholder='Add item to do' ng-model='WC.todo'>
+      <button class='col-md-1 col-md-offset-1' ng-disabled='WC.todo.length < 3 || WC.todo.length > 30' ng-click='WC.addItem(WC.todo); WC.todo=""'>Add</button>
+    </div>
+
+    <!-- The todo list -->
+    <div class='row'>
+      <div class='col-md-4 todolist'>
+        <h2>To Do List:</h2>
+        <div class='todoItem' ng-repeat='item in WC.todolist'>
+          <p>{{item.item}}</p>
+          <button ng-click='WC.moveDoing(item)'>Doing</button>
+          <button ng-click='WC.removetodo(item)'>Remove</button>
+        </div>
+      </div>
+      <div class='col-md-4 todolist'>
+        <h2>Doing List:</h2>
+        <div class='todoItem' ng-repeat='item in WC.doingList'>
+          <p>{{item.item}}</p>
+          <button ng-click='WC.moveDone(item)'>Done</button>
+          <button ng-click='WC.removedoing(item)'>Remove</button>
+        </div>
+      </div>
+      <div class='col-md-4 todolist'>
+        <h2>Done List:</h2>
+        <div class='todoItem' ng-repeat='item in WC.doneList'>
+          <p>{{item.item}} completed in {{item.totalTime}}</p>
+          <button ng-click='WC.removedone(item)'>Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
