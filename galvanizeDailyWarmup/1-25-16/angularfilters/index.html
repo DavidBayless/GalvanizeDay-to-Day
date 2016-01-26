@@ -26,7 +26,21 @@
       <div class='col-md-8 col-md-offset-2'>
         <h3>Maybe Something will be here</h3>
       </div> -->
-
+      <nav class='navbar navbar-default' ng-controller='indexController as IC'>
+        <div class='container-fluid'>
+          <div class='navbar-header'>
+            <a class='navbar-brand' href='#/'>
+              <img ng-click='IC.path = "/"' alt='Brand' src='http://thumbpress.com/wp-content/uploads/2014/06/funny-potato-tiny-cheer-pink1.jpg'>
+            </a>
+          </div>
+          <div class='collapse navbar-collapse'>
+            <li ng-class='{active: IC.path == "/"}' ng-click='IC.path = "/"' ><a href='#/'>Home</a></li>
+            <li ng-class='{active: IC.path == "/projects"}' ng-click='IC.path = "/projects"' ><a href='#/projects'>Projects</a></li>
+            <li ng-class='{active: IC.path == "/bio"}' ng-click='IC.path = "/bio"' ><a href='#/bio'>Bio</a></li>
+            <li ng-class='{active: IC.path == "/resume"}' ng-click='IC.path = "/resume"' ><a href='#/resume'>Resume</a></li>
+          </div>
+        </div>
+      </nav>
       <h1>Header</h1>
       <div ng-view></div>
       <h1>Footer</h1>
