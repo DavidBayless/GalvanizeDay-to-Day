@@ -1,0 +1,21 @@
+{
+  "name": "1-26-16",
+  "homepage": "https://github.com/DavidBayless/GalvanizeDay-to-Day",
+  "authors": [
+    "David Bayless <David.C.Bayless15@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-color-picker": "~1.0.10"
+  }
+}
